@@ -5,6 +5,7 @@
     "sosa": "http://www.w3.org/ns/sosa/",
     "om": "http://www.ontology-of-units-of-measure.org/resource/om-2/",
     "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "ex": "http://example.org/kb/"
   },
@@ -21,8 +22,10 @@
       "id": "ex:GMS_Reaction",
       "type": "or:ReactionExperiment",
       "or:hasInputChemical": [
-        { "id": "ex:Reagent_A" },
-        { "id": "ex:Reagent_B" }
+        { "id": "ex:Reagent_A" 
+          "rdfs:label": "ZnNO3 0.1M"},
+        { "id": "ex:Reagent_B" 
+          "rdfs:label": "KOH 0.21M"}
       ]
     },
     {
@@ -36,7 +39,7 @@
       "sosa:observes": { "id": "ex:FlowRate_A" }
     },
     
-    // --- The New SOSA Observation Node ---
+    // --- The Observation and Dimensional Quantities ---
     {
       "id": "ex:Measure_Flow_A",
       "type": "sosa:Observation",
@@ -52,8 +55,17 @@
     {
       "id": "ex:FlowRate_A",
       "type": ["oce:VolumetricFlowRate", "sosa:ObservableProperty"],
-      "om:hasUnit": { "id": "om:litrePerMinute" }
+      "om:hasUnit": { "id": "ex:litrePerMinute" 
+      "rdfs:label": "L/min"}
     },
+        
+    {
+      "id": "ex:ReactionTime",
+      "type": "oce:Time",
+      "om:hasUnit": { "id": "om:second-Time" 
+      "rdfs:label": "second"}
+    },
+    
     {
       "id": "ex:DG_Flow_Time",
       "type": "oce:DataGroup",
@@ -61,7 +73,7 @@
         { "id": "ex:DP_Time_0" },
         { "id": "ex:DP_Flow_0" }
       ],
-      // Optional: Redundant links from diagram kept for completeness
+
       "oce:hasDimensionalQuantity": [
         { "id": "ex:FlowRate_A" },
         { "id": "ex:ReactionTime" }
@@ -90,12 +102,6 @@
         "type": "oce:X",
         "oce:hasValue": { "@value": "0.0", "@type": "xsd:double" }
       }
-    },
-    
-    {
-      "id": "ex:ReactionTime",
-      "type": "oce:Time",
-      "om:hasUnit": { "id": "om:second-Time" }
     }
   ]
 }
