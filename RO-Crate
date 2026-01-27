@@ -1,0 +1,101 @@
+{
+  "@context": {
+    "oce": "http://www.theworldavatar.com/ontology/ontochemexp/OntoChemExp.owl#",
+    "or": "http://www.theworldavatar.com/ontology/ontoreaction/OntoReaction.owl#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "om": "http://www.ontology-of-units-of-measure.org/resource/om-2/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "ex": "http://example.org/kb/"
+  },
+  "@graph": [
+    {
+      "id": "ex:XK212-GMS-1-1reaction",
+      "type": "oce:Experiment",
+      "schema:isBasedOn": { "id": "ex:GMS_Reaction" },
+      "oce:hasApparatus": { "id": "ex:K1_Reaction_System" },
+      "oce:hasPerformer": { "id": "ex:xk212" },
+      "oce:hasDataGroup": { "id": "ex:DG_Flow_Time" }
+    },
+    {
+      "id": "ex:GMS_Reaction",
+      "type": "or:ReactionExperiment",
+      "or:hasInputChemical": [
+        { "id": "ex:Reagent_A" },
+        { "id": "ex:Reagent_B" }
+      ]
+    },
+    {
+      "id": "ex:K1_Reaction_System",
+      "type": ["oce:Apparatus", "sosa:Platform"],
+      "sosa:hosts": { "id": "ex:Pump_A" }
+    },
+    {
+      "id": "ex:Pump_A",
+      "type": ["sosa:Sensor", "sosa:Actuator"],
+      "sosa:observes": { "id": "ex:FlowRate_A" }
+    },
+    
+    // --- The New SOSA Observation Node ---
+    {
+      "id": "ex:Measure_Flow_A",
+      "type": "sosa:Observation",
+      "sosa:madeBySensor": { "id": "ex:Pump_A" },
+      "sosa:observedProperty": { "id": "ex:FlowRate_A" },
+      "sosa:hasFeatureOfInterest": { "id": "ex:Reagent_A" }
+    },
+
+    {
+      "id": "ex:Reagent_A",
+      "type": ["or:InputChemical", "sosa:FeatureOfInterest"]
+    },
+    {
+      "id": "ex:FlowRate_A",
+      "type": ["oce:VolumetricFlowRate", "sosa:ObservableProperty"],
+      "om:hasUnit": { "id": "om:litrePerMinute" }
+    },
+    {
+      "id": "ex:DG_Flow_Time",
+      "type": "oce:DataGroup",
+      "oce:hasDataPoint": [
+        { "id": "ex:DP_Time_0" },
+        { "id": "ex:DP_Flow_0" }
+      ],
+      // Optional: Redundant links from diagram kept for completeness
+      "oce:hasDimensionalQuantity": [
+        { "id": "ex:FlowRate_A" },
+        { "id": "ex:ReactionTime" }
+      ]
+    },
+    
+    // --- Data Point: Time ---
+    {
+      "id": "ex:DP_Time_0",
+      "type": "oce:DataPoint",
+      "oce:refersTo": { "id": "ex:ReactionTime" },
+      "oce:hasValue": {
+        "id": "ex:Val_Time_0",
+        "type": "oce:X",
+        "oce:hasValue": { "@value": "0", "@type": "xsd:double" }
+      }
+    },
+    
+    // --- Data Point: Flow ---
+    {
+      "id": "ex:DP_Flow_0",
+      "type": "oce:DataPoint",
+      "oce:refersTo": { "id": "ex:FlowRate_A" }, 
+      "oce:hasValue": {
+        "id": "ex:Val_Flow_0",
+        "type": "oce:X",
+        "oce:hasValue": { "@value": "0.0", "@type": "xsd:double" }
+      }
+    },
+    
+    {
+      "id": "ex:ReactionTime",
+      "type": "oce:Time",
+      "om:hasUnit": { "id": "om:second-Time" }
+    }
+  ]
+}
