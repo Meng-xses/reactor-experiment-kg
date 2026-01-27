@@ -16,9 +16,9 @@
   ],
   "@graph": [
     {
-      "id": "ro-crate-metadata.json",
+      "id": "ro-crate-00.json",
       "type": "CreativeWork",
-      "conformsTo": { "id": "https://w3id.org/ro/crate/1.1" },
+      "conformsTo": { "id": "https://w3id.org/ro/crate/1.2" },
       "about": { "id": "./" }
     },
     {
@@ -26,6 +26,7 @@
       "type": "Dataset",
       "name": "CC0-0.0",
       "description": "Semantic one-row time-flowrate data for ZnO production with K1-ractor-system",
+      "datePublished": "2026-01-27",
       "hasPart": [ { "id": "ex:XK212-GMS-1-1reaction" } ]
     },
     {
