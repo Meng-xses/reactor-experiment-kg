@@ -1,0 +1,36 @@
+﻿Variable,Variable (?),Unit,Value
+lab location,"which institute, which builidng, which laboratory",,CEB L2.08
+containment,"e.g., at a bench (no containment), in a safety cabinet, in a fume hood, etc.",,safety cabinet
+modular reagent ID,labelled on the storage glassware of the modular reagent prepared,,NiCl2.6H2O 0.01M Li
+preparation designer ID,unique ID that identifies the person who designs the procedure and parameters of preparation,,cl2114
+preparation opeartor ID,unique ID that identifies the person who conducts the preparation,,cl2114
+modular reagent target concentration,the target concentration in M,M,0.01
+modular reagent target volume,the target volume in ml,ml,200
+preparation start date,the date when preparation starts in YYYY-MM-DD,datetime,07/04/2026
+preparation start time,the time when preparation starts in HH:MM:SS,datetime,13:39
+relative humidity,the relative humidity in the containment in the lab,%,
+environment temperature,the temperature in the containment in the lab in degree C,degree C,
+environment pressure,the pressure in the containment in the lab in barg,barg,
+operator PPE,the personal protective equipment worn by the operator,,"lab coat, glasses, gloves"
+solvent CAS number,CAS number of the solvent used,,7732-18-5
+solvent supplier,the supplier of the solvent used,,CEB
+solvent production date,production date of the solvent in YYYY-MM-DD,datetime,
+solvent volumetric measurement glassware ID,"unique ID that identifies the glassware used to measure the volume of solvent used, e.g. gradualted cylinder ID",,50 ml gradulated cylindar xxx
+solvent volume,the volume of solvent measured in ml,ml,200
+solvent volume error,,ml,2
+solute CAS number,CAS number of the solute used,,7791-20-0
+solute molecular weight,,g/mol,237.69
+solute supplier,the supplier of the solute used,,Sigma-Aldrich
+solute production lot,production date of the solute in YYYY-MM-DD,,0000540605
+solute mass measurement apparatus ID(s),"unique ID that identifies the glassware used to measure the mass of solute used, e.g. scale ID, weighing boat (disposable)",,"spatula xxx, weighing boat, Fischer Scientific scale xxx"
+tare mass,tare mass when weighing the solute in gram (0 if tared),g,0
+total mass of solute,tare + solute mass when weighing the solute in gram,g,0.476
+mass measurement error,,g,0.001
+solute mass,solute mass in gram,g,0.476
+mixing glassware ID,"unique ID that identifies the glassware used to mix solvent and solute, e.g. volumetric flask ID, bottle ID",,bottle NiCl2.6H2O 0.01M Li
+mixing method,"e.g. hand shake, magnetic stir",,hand shake
+transfer glassware ID,e.g. funnel ID,,
+preparation end date,the date when preparation ends in YYYY-MM-DD,datetime,07/04/2026
+preparation end time,the time when preparation ends in HH:MM:SS,datetime,13:50
+calculated concentration,the concentration in M calcualted from mass of solute and volume of solvent,M,0.010013042
+actual volume of modular reagent,the final volume in ml of the modular reagent prepared,ml,200
